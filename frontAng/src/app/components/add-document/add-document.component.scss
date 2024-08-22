@@ -1,0 +1,114 @@
+body {
+    background-color: rgb(202, 157, 61);
+    padding: 30px;
+    margin: 0;
+  }
+  
+  * {
+    font-family: 'Ubuntu', sans-serif;
+  }
+  
+  .container {
+    
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    min-height: 435px;
+    margin: auto;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25);
+    padding: 20px;
+  }
+  .container h1 {
+    color: #3f51b5; 
+  }
+  
+  .header-section {
+    margin-bottom: 20px;
+  }
+  
+  .drop-section {
+    border: 2px dashed #aaa;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .drop-section.dragging {
+    border-color: #3f51b5;
+    background-color: #e3f2fd;
+  }
+  
+  .cloud-icon {
+    margin-bottom: 10px;
+  }
+  
+  .file-selector {
+    margin-top: 10px;
+  }
+  
+  .file-selector-input {
+    display: none;
+  }
+  
+  .list-section {
+    margin-top: 20px;
+  }
+  
+  .list-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .file-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    font-size: 14px;
+  }
+  
+  .file-item img {
+    height: 30px; 
+    width: 24px;
+    margin-right: 10px;
+  }
+  
+  .file-item .file-name {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+  
+  .file-item .file-name .name {
+    margin-right: 10px;
+  }
+  
+  .file-item .file-progress {
+    flex: 2;
+    margin-right: 10px;
+  }
+  
+  .file-item .file-size {
+    margin-right: 10px;
+  }
+  
+  .remove-button {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+  }
+  
+  .remove-button .cross {
+    height: 16px; /* Ajustez la taille de l'icône ici */
+    width: 16px;
+  }
+  

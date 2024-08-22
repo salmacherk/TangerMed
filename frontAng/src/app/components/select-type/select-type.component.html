@@ -1,0 +1,24 @@
+<div class="container">
+    <h1>Ajouter un document à {{ batimentNom }}</h1>
+    
+    <mat-radio-group [(ngModel)]="selection">
+      <mat-radio-button value="batiment">Ajouter au bâtiment</mat-radio-button>
+      <mat-radio-button value="groupe">Ajouter au groupe</mat-radio-button>
+    </mat-radio-group>
+  
+    <div *ngIf="selection === 'groupe'">
+      <mat-form-field appearance="outline">
+        <mat-label>Choisissez un groupe</mat-label>
+        <mat-select [(ngModel)]="selectedGroupe">
+          <mat-option *ngFor="let groupe of groupes" [value]="groupe.id">
+            {{ groupe.nom }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  
+    <button mat-raised-button color="primary" (click)="navigateToAddDocument()">
+      Ajouter un document
+    </button>
+  </div>
+  

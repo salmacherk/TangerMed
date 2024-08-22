@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: #eef5fe;
+}
+
+.sidenav-container {
+  height: 100vh;
+  width: 100%;
+}
+
+.sidebar {
+  width: 350px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.logo_items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.logo_image {
+  height: 50px;
+  width: auto;
+  max-width: 100%;
+}
+
+.menu-icon,
+.menu-icon-fixed {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.menu-icon-fixed {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+}
+
+.menu_container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #707070;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.link:hover {
+  background-color: #2749a5;
+  color: #fff;
+}
+
+.link.active {
+  background-color: #2749a5;
+  color: #fff;
+}
+
+.menu-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.sidebar_profile {
+  margin-top: auto;
+  padding: 20px 0;
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav_image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 70px;
+}
+
+.nav_image img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.data_text {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-size: 18px;
+  color: #333;
+}
+
+.email {
+  font-size: 14px;
+  color: #777;
+}
+
+@media screen and (max-width: 800px) {
+  .sidebar {
+    width: 100px;
+  }
+
+  .sidebar.close {
+    width: 100px;
+  }
+
+  .menu-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .title {
+    display: none;
+  }
+
+  .logo_name {
+    display: none;
+  }
+}

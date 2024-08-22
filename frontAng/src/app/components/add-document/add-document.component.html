@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="header-section">
+    <h1>Upload Files</h1>
+    <p>Upload files you want to add </p>
+    <p>PDF, xls & images are allowed.</p>
+  </div>
+  
+  
+  <form [formGroup]="uploadForm">
+    <div class="drop-section" (drop)="onFileDrop($event)" (dragover)="onDragOver($event)" (dragleave)="onDragLeave($event)">
+      <div class="col">
+        <div class="cloud-icon">
+          <img src="assets/icons/cloud.png" alt="cloud">
+        </div>
+        <span>Drag & Drop your files here </span>
+        <span>OR</span>
+        <div class="drop-here">Drop Here</div>
+        
+        <button mat-raised-button color="primary" (click)="fileInput.click()" type="button">Browse Files</button>
+        <input id="fileInput" type="file" (change)="onFileChange($event)" multiple class="file-selector-input" #fileInput>
+      </div>
+      <div class="col">
+       
+      </div>
+    </div>
+
+
+<div *ngIf="fileList.length > 0" class="list-section">
+  <div class="list-title">Uploaded Files</div>
+  <ul class="list">
+    <li *ngFor="let file of fileList; let i = index" class="file-item">
+      <div class="col">
+        <img src="assets/icons/PDF.png" alt="">
+      </div>
+      <div class="col">
+        <div class="file-name">
+          <div class="name">{{ file.name }}</div>
+        </div>
+        <div class="file-progress">
+          <span></span>
+        </div>
+        <div class="file-size">{{ (file.size / 1024 / 1024).toFixed(2) }} MB</div>
+      </div>
+      <div class="col">
+        <button (click)="removeFile(i)" class="remove-button">
+          <svg xmlns="http://www.w3.org/2000/svg" class="cross" height="16" width="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>
+<br>
+
+<button *ngIf="fileList.length > 0" mat-raised-button color="primary" type="button" (click)="uploadDocuments()">Upload Documents</button>

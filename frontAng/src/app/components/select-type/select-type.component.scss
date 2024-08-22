@@ -1,0 +1,65 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    width: 50%;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ccc;
+    margin: auto; /* Centers the container horizontally */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centers the container vertically */
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #3f51b5;
+}
+
+mat-radio-group {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+mat-form-field {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+button {
+    width: 200px;
+}
+
+/* Global styles or component styles with encapsulation disabled */
+
+/* Outer circle (unselected state) */
+::ng-deep .mat-radio-button .mat-radio-outer-circle {
+    border-color: #3f51b5 !important; /* Blue border */
+  }
+  
+  /* Inner circle (selected state) */
+  ::ng-deep .mat-radio-button .mat-radio-inner-circle {
+    background-color: #3f51b5 !important; /* Blue fill */
+  }
+  
+  /* Outer circle (selected state) */
+  ::ng-deep .mat-radio-button.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #3f51b5 !important; /* Blue border when selected */
+  }
+  
+  /* Ensuring no other colors apply */
+  ::ng-deep .mat-radio-button.mat-accent .mat-radio-ripple {
+    color: #3f51b5 !important; /* Blue ripple effect */
+  }
+  

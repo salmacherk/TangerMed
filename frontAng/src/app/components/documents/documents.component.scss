@@ -1,0 +1,69 @@
+/* Conteneur principal du tableau */
+.table-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+  text-align: center;
+  background-color: #f0f0f0; /* Couleur de fond du conteneur */
+  overflow: auto; /* Permet le défilement si le contenu dépasse */
+}
+
+/* Titre du tableau */
+.table-title {
+  font-size: 1.2rem; /* Taille de la police du titre réduite */
+  margin: 1rem 0;
+  color: #3f51b5;
+  font-weight: 600;
+}
+
+/* Conteneur du tableau avec élévation */
+.mat-elevation-z8 {
+  width: 100%;
+  max-width: 800px; /* Réduit la largeur maximale du tableau */
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 1rem;
+  margin: 0 auto;
+  overflow-x: auto; /* Permet le défilement horizontal si nécessaire */
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  table-layout: auto; /* Ajuste la largeur des colonnes en fonction du contenu */
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+/* Header de la table */
+th {
+  font-size: 0.9rem; /* Taille de la police du header réduite */
+  font-weight: 600;
+  color: #333;
+  padding: 0.75rem;
+  text-align: left;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Cells de la table */
+td {
+  font-size: 0.8rem; /* Taille de la police des cellules réduite */
+  padding: 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  color: #555;
+}
+
+/* Buttons in the actions column */
+button.mat-icon-button {
+  font-size: 0.8rem; /* Taille de la police des boutons d'actions réduite */
+}
+
+/* Mat-paginator Styling */
+.mat-paginator {
+  font-size: 0.8rem; /* Taille de la police du paginator réduite */
+}

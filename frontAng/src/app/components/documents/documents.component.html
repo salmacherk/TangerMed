@@ -1,0 +1,443 @@
+<div class="table-container">
+  <div class="mat-elevation-z8" *ngIf="isShowingAll">
+    <h2 class="table-title">Tous les Documents</h2>
+    <table mat-table [dataSource]="dataSource" matSort>
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let document"> {{document.id}} </td>
+      </ng-container>
+  
+      <!-- Nom Origine Column -->
+      <ng-container matColumnDef="nomOrigine">
+        <th mat-header-cell *matHeaderCellDef> Nom Origine </th>
+        <td mat-cell *matCellDef="let document"> {{document.nomOrigine}} </td>
+      </ng-container>
+  
+      <!-- Chemin Column -->
+      <ng-container matColumnDef="chemin">
+        <th mat-header-cell *matHeaderCellDef> Chemin </th>
+        <td mat-cell *matCellDef="let document"> {{document.chemin}} </td>
+      </ng-container>
+  
+      <!-- Nouveau Nom Column -->
+      <ng-container matColumnDef="nouveauNom">
+        <th mat-header-cell *matHeaderCellDef> Nouveau Nom </th>
+        <td mat-cell *matCellDef="let document"> {{document.nouveauNom}} </td>
+      </ng-container>
+  
+      <!-- Date Insertion Column -->
+      <ng-container matColumnDef="dateInsertion">
+        <th mat-header-cell *matHeaderCellDef> Date Insertion </th>
+        <td mat-cell *matCellDef="let document"> {{document.dateInsertion | date:'short'}} </td>
+      </ng-container>
+      
+      <!-- Portfolio Column -->
+      <ng-container matColumnDef="portfolio">
+        <th mat-header-cell *matHeaderCellDef> Portfolio </th>
+        <td mat-cell *matCellDef="let document"> {{document.portfolio}} </td>
+      </ng-container>
+  
+      
+        <!-- Groupe Nom Column -->
+    <ng-container matColumnDef="groupeNom">
+      <th mat-header-cell *matHeaderCellDef> Groupe </th>
+      <td mat-cell *matCellDef="let document"> {{document.groupeNom}} </td>
+    </ng-container>
+    
+    <!-- Ouvrage Nom Column -->
+    <ng-container matColumnDef="ouvrageNom">
+      <th mat-header-cell *matHeaderCellDef> Ouvrage </th>
+      <td mat-cell *matCellDef="let document"> {{document.ouvrageNom}} </td>
+    </ng-container>
+    
+    <!-- Actif Nom Column -->
+    <ng-container matColumnDef="actifNom">
+      <th mat-header-cell *matHeaderCellDef> Actif </th>
+      <td mat-cell *matCellDef="let document"> {{document.actifNom}} </td>
+    </ng-container>
+    
+    <!-- Batiment Nom Column -->
+    <ng-container matColumnDef="batimentNom">
+      <th mat-header-cell *matHeaderCellDef> Batiment </th>
+      <td mat-cell *matCellDef="let document"> {{document.batimentNom}} </td>
+    </ng-container>
+  
+  
+      
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let document">
+          <button mat-icon-button color="primary" (click)="viewDocument(document)">
+            <mat-icon>visibility</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteDocument(document.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" (click)="downloadDocument(document.id)">
+            <mat-icon>download</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+
+  <div class="mat-elevation-z8" *ngIf="isShowingByBatiment">
+    <h2 class="table-title">Documents de Bâtiment</h2>
+    <table mat-table [dataSource]="dataSource" matSort>
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let document"> {{document.id}} </td>
+      </ng-container>
+  
+      <!-- Nom Origine Column -->
+      <ng-container matColumnDef="nomOrigine">
+        <th mat-header-cell *matHeaderCellDef> Nom Origine </th>
+        <td mat-cell *matCellDef="let document"> {{document.nomOrigine}} </td>
+      </ng-container>
+  
+      <!-- Chemin Column -->
+      <ng-container matColumnDef="chemin">
+        <th mat-header-cell *matHeaderCellDef> Chemin </th>
+        <td mat-cell *matCellDef="let document"> {{document.chemin}} </td>
+      </ng-container>
+  
+      <!-- Nouveau Nom Column -->
+      <ng-container matColumnDef="nouveauNom">
+        <th mat-header-cell *matHeaderCellDef> Nouveau Nom </th>
+        <td mat-cell *matCellDef="let document"> {{document.nouveauNom}} </td>
+      </ng-container>
+  
+      <!-- Date Insertion Column -->
+      <ng-container matColumnDef="dateInsertion">
+        <th mat-header-cell *matHeaderCellDef> Date Insertion </th>
+        <td mat-cell *matCellDef="let document"> {{document.dateInsertion | date:'short'}} </td>
+      </ng-container>
+      
+      <!-- Portfolio Column -->
+      <ng-container matColumnDef="portfolio">
+        <th mat-header-cell *matHeaderCellDef> Portfolio </th>
+        <td mat-cell *matCellDef="let document"> {{document.portfolio}} </td>
+      </ng-container>
+  
+      
+        <!-- Groupe Nom Column -->
+    <ng-container matColumnDef="groupeNom">
+      <th mat-header-cell *matHeaderCellDef> Groupe </th>
+      <td mat-cell *matCellDef="let document"> {{document.groupeNom}} </td>
+    </ng-container>
+    
+    
+    
+    <!-- Batiment Nom Column -->
+    <ng-container matColumnDef="batimentNom">
+      <th mat-header-cell *matHeaderCellDef> Batiment </th>
+      <td mat-cell *matCellDef="let document"> {{document.batimentNom}} </td>
+    </ng-container>
+   <!-- Ouvrage Nom Column -->
+   <ng-container matColumnDef="ouvrageNom">
+    <th mat-header-cell *matHeaderCellDef> Ouvrage </th>
+    <td mat-cell *matCellDef="let document"> {{document.ouvrageNom}} </td>
+  </ng-container>
+  
+  <!-- Actif Nom Column -->
+  <ng-container matColumnDef="actifNom">
+    <th mat-header-cell *matHeaderCellDef> Actif </th>
+    <td mat-cell *matCellDef="let document"> {{document.actifNom}} </td>
+  </ng-container>
+  
+  <!-- Batiment Nom Column -->
+  
+      
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let document">
+          <button mat-icon-button color="primary" (click)="viewDocument(document)">
+            <mat-icon>visibility</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteDocument(document.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" (click)="downloadDocument(document.id)">
+            <mat-icon>download</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+
+  <div class="mat-elevation-z8" *ngIf="isShowingByOuvrage">
+    <h2 class="table-title">Documents d'Ouvrage</h2>
+    <table mat-table [dataSource]="dataSource" matSort>
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let document"> {{document.id}} </td>
+      </ng-container>
+  
+      <!-- Nom Origine Column -->
+      <ng-container matColumnDef="nomOrigine">
+        <th mat-header-cell *matHeaderCellDef> Nom Origine </th>
+        <td mat-cell *matCellDef="let document"> {{document.nomOrigine}} </td>
+      </ng-container>
+  
+      <!-- Chemin Column -->
+      <ng-container matColumnDef="chemin">
+        <th mat-header-cell *matHeaderCellDef> Chemin </th>
+        <td mat-cell *matCellDef="let document"> {{document.chemin}} </td>
+      </ng-container>
+  
+      <!-- Nouveau Nom Column -->
+      <ng-container matColumnDef="nouveauNom">
+        <th mat-header-cell *matHeaderCellDef> Nouveau Nom </th>
+        <td mat-cell *matCellDef="let document"> {{document.nouveauNom}} </td>
+      </ng-container>
+  
+      <!-- Date Insertion Column -->
+      <ng-container matColumnDef="dateInsertion">
+        <th mat-header-cell *matHeaderCellDef> Date Insertion </th>
+        <td mat-cell *matCellDef="let document"> {{document.dateInsertion | date:'short'}} </td>
+      </ng-container>
+      
+      <!-- Portfolio Column -->
+      <ng-container matColumnDef="portfolio">
+        <th mat-header-cell *matHeaderCellDef> Portfolio </th>
+        <td mat-cell *matCellDef="let document"> {{document.portfolio}} </td>
+      </ng-container>
+  
+      
+        <!-- Groupe Nom Column -->
+    <ng-container matColumnDef="groupeNom">
+      <th mat-header-cell *matHeaderCellDef> Groupe </th>
+      <td mat-cell *matCellDef="let document"> {{document.groupeNom}} </td>
+    </ng-container>
+    
+    <!-- Ouvrage Nom Column -->
+    <ng-container matColumnDef="ouvrageNom">
+      <th mat-header-cell *matHeaderCellDef> Ouvrage </th>
+      <td mat-cell *matCellDef="let document"> {{document.ouvrageNom}} </td>
+    </ng-container>
+    
+    <!-- Actif Nom Column -->
+    <ng-container matColumnDef="actifNom">
+      <th mat-header-cell *matHeaderCellDef> Actif </th>
+      <td mat-cell *matCellDef="let document"> {{document.actifNom}} </td>
+    </ng-container>
+    
+    <!-- Batiment Nom Column -->
+    <ng-container matColumnDef="batimentNom">
+      <th mat-header-cell *matHeaderCellDef> Batiment </th>
+      <td mat-cell *matCellDef="let document"> {{document.batimentNom}} </td>
+    </ng-container>
+  
+  
+      
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let document">
+          <button mat-icon-button color="primary" (click)="viewDocument(document)">
+            <mat-icon>visibility</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteDocument(document.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" (click)="downloadDocument(document.id)">
+            <mat-icon>download</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+
+  <div class="mat-elevation-z8" *ngIf="isShowingByActif">
+    <h2 class="table-title">Documents d'Actif</h2>
+    <table mat-table [dataSource]="dataSource" matSort>
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let document"> {{document.id}} </td>
+      </ng-container>
+  
+      <!-- Nom Origine Column -->
+      <ng-container matColumnDef="nomOrigine">
+        <th mat-header-cell *matHeaderCellDef> Nom Origine </th>
+        <td mat-cell *matCellDef="let document"> {{document.nomOrigine}} </td>
+      </ng-container>
+  
+      <!-- Chemin Column -->
+      <ng-container matColumnDef="chemin">
+        <th mat-header-cell *matHeaderCellDef> Chemin </th>
+        <td mat-cell *matCellDef="let document"> {{document.chemin}} </td>
+      </ng-container>
+  
+      <!-- Nouveau Nom Column -->
+      <ng-container matColumnDef="nouveauNom">
+        <th mat-header-cell *matHeaderCellDef> Nouveau Nom </th>
+        <td mat-cell *matCellDef="let document"> {{document.nouveauNom}} </td>
+      </ng-container>
+  
+      <!-- Date Insertion Column -->
+      <ng-container matColumnDef="dateInsertion">
+        <th mat-header-cell *matHeaderCellDef> Date Insertion </th>
+        <td mat-cell *matCellDef="let document"> {{document.dateInsertion | date:'short'}} </td>
+      </ng-container>
+      
+      <!-- Portfolio Column -->
+      <ng-container matColumnDef="portfolio">
+        <th mat-header-cell *matHeaderCellDef> Portfolio </th>
+        <td mat-cell *matCellDef="let document"> {{document.portfolio}} </td>
+      </ng-container>
+  
+      
+        <!-- Groupe Nom Column -->
+    <ng-container matColumnDef="groupeNom">
+      <th mat-header-cell *matHeaderCellDef> Groupe </th>
+      <td mat-cell *matCellDef="let document"> {{document.groupeNom}} </td>
+    </ng-container>
+    
+    <!-- Ouvrage Nom Column -->
+    <ng-container matColumnDef="ouvrageNom">
+      <th mat-header-cell *matHeaderCellDef> Ouvrage </th>
+      <td mat-cell *matCellDef="let document"> {{document.ouvrageNom}} </td>
+    </ng-container>
+    
+    <!-- Actif Nom Column -->
+    <ng-container matColumnDef="actifNom">
+      <th mat-header-cell *matHeaderCellDef> Actif </th>
+      <td mat-cell *matCellDef="let document"> {{document.actifNom}} </td>
+    </ng-container>
+    
+    <!-- Batiment Nom Column -->
+    <ng-container matColumnDef="batimentNom">
+      <th mat-header-cell *matHeaderCellDef> Batiment </th>
+      <td mat-cell *matCellDef="let document"> {{document.batimentNom}} </td>
+    </ng-container>
+  
+  
+      
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let document">
+          <button mat-icon-button color="primary" (click)="viewDocument(document)">
+            <mat-icon>visibility</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteDocument(document.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" (click)="downloadDocument(document.id)">
+            <mat-icon>download</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+
+  <div class="mat-elevation-z8" *ngIf="isShowingByGroupe">
+    <h2 class="table-title">Documents de Groupe</h2>
+    <table mat-table [dataSource]="dataSource" matSort>
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let document"> {{document.id}} </td>
+      </ng-container>
+  
+      <!-- Nom Origine Column -->
+      <ng-container matColumnDef="nomOrigine">
+        <th mat-header-cell *matHeaderCellDef> Nom Origine </th>
+        <td mat-cell *matCellDef="let document"> {{document.nomOrigine}} </td>
+      </ng-container>
+  
+      <!-- Chemin Column -->
+      <ng-container matColumnDef="chemin">
+        <th mat-header-cell *matHeaderCellDef> Chemin </th>
+        <td mat-cell *matCellDef="let document"> {{document.chemin}} </td>
+      </ng-container>
+  
+      <!-- Nouveau Nom Column -->
+      <ng-container matColumnDef="nouveauNom">
+        <th mat-header-cell *matHeaderCellDef> Nouveau Nom </th>
+        <td mat-cell *matCellDef="let document"> {{document.nouveauNom}} </td>
+      </ng-container>
+  
+      <!-- Date Insertion Column -->
+      <ng-container matColumnDef="dateInsertion">
+        <th mat-header-cell *matHeaderCellDef> Date Insertion </th>
+        <td mat-cell *matCellDef="let document"> {{document.dateInsertion | date:'short'}} </td>
+      </ng-container>
+      
+      <!-- Portfolio Column -->
+      <ng-container matColumnDef="portfolio">
+        <th mat-header-cell *matHeaderCellDef> Portfolio </th>
+        <td mat-cell *matCellDef="let document"> {{document.portfolio}} </td>
+      </ng-container>
+  
+      
+        <!-- Groupe Nom Column -->
+    <ng-container matColumnDef="groupeNom">
+      <th mat-header-cell *matHeaderCellDef> Groupe </th>
+      <td mat-cell *matCellDef="let document"> {{document.groupeNom}} </td>
+    </ng-container>
+    
+    <!-- Ouvrage Nom Column -->
+    <ng-container matColumnDef="ouvrageNom">
+      <th mat-header-cell *matHeaderCellDef> Ouvrage </th>
+      <td mat-cell *matCellDef="let document"> {{document.ouvrageNom}} </td>
+    </ng-container>
+    
+    <!-- Actif Nom Column -->
+    <ng-container matColumnDef="actifNom">
+      <th mat-header-cell *matHeaderCellDef> Actif </th>
+      <td mat-cell *matCellDef="let document"> {{document.actifNom}} </td>
+    </ng-container>
+    
+    <!-- Batiment Nom Column -->
+    <ng-container matColumnDef="batimentNom">
+      <th mat-header-cell *matHeaderCellDef> Batiment </th>
+      <td mat-cell *matCellDef="let document"> {{document.batimentNom}} </td>
+    </ng-container>
+  
+  
+      
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let document">
+          <button mat-icon-button color="primary" (click)="viewDocument(document)">
+            <mat-icon>visibility</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteDocument(document.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" (click)="downloadDocument(document.id)">
+            <mat-icon>download</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

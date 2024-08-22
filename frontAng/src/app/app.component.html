@@ -1,0 +1,43 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav *ngIf="showSidebar" mode="side" opened class="sidebar">
+    <div class="logo_items flex">
+      <img src="assets/icons/close.png" alt="Menu Icon" class="menu-icon" (click)="toggleSidebar()" />
+      <img src="assets/icons/logo.png" alt="Logo" class="logo_image" />
+    </div>
+    <div class="menu_container">
+      <a mat-list-item class="link" [ngClass]="{'active': activeLink === 'home'}" (click)="navigateTo('home')">
+        <img src="assets/icons/home.png" alt="Home Icon" class="menu-icon"/>
+        <span class="title">Home</span>
+      </a>
+      <a mat-list-item class="link" [ngClass]="{'active': activeLink === 'groupes'}" (click)="navigateTo('groupes')">
+        <img src="assets/icons/groupe.png" alt="Groupes Icon" class="menu-icon"/>
+        <span class="title">Groupes</span>
+      </a>
+      <a mat-list-item class="link" [ngClass]="{'active': activeLink === 'actifs'}" (click)="navigateTo('actifs')">
+        <img src="assets/icons/actif.png" alt="Actifs Icon" class="menu-icon"/>
+        <span class="title">Actifs</span>
+      </a>
+      <a mat-list-item class="link" [ngClass]="{'active': activeLink === 'ouvrages'}" (click)="navigateTo('ouvrages')">
+        <img src="assets/icons/ouvrage.png" alt="Ouvrages Icon" class="menu-icon"/>
+        <span class="title">Ouvrages</span>
+      </a>
+      <a mat-list-item class="link" [ngClass]="{'active': activeLink === 'batiments'}" (click)="navigateTo('batiments')">
+        <img src="assets/icons/batiment.png" alt="Bâtiments Icon" class="menu-icon"/>
+        <span class="title">Bâtiments</span>
+      </a>
+      <a mat-list-item class="link" [ngClass]="{'active': activeLink === 'documents'}" (click)="navigateTo('documents')">
+        <img src="assets/icons/document.png" alt="Documents Icon" class="menu-icon"/>
+        <span class="title">Documents</span>
+      </a>
+      
+      <a mat-list-item class="link" (click)="logout()">
+        <img src="assets/icons/logout.png" alt="Déconnexion Icon" class="menu-icon"/>
+        <span class="title">Déconnexion</span>
+      </a>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <img *ngIf="!hideMenuIcon" src="assets/icons/close.png" alt="Menu Icon" class="menu-icon-fixed" (click)="toggleSidebar()" />
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

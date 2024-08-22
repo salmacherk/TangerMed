@@ -1,0 +1,117 @@
+/* Conteneur principal du tableau */
+.table-container {
+  display: flex;
+  flex-direction: column; /* Arrange la barre de recherche et le tableau en colonne */
+  justify-content: center; /* Centre le tableau horizontalement */
+  align-items: center; /* Centre le tableau verticalement */
+  min-height: 100vh; /* Assure que le conteneur occupe toute la hauteur de la vue */
+  padding: 2rem; /* Espacement intérieur autour du tableau */
+  text-align: center;
+}
+
+/* Conteneur de la barre de recherche */
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem; /* Espace entre la barre de recherche et le tableau */
+  width: 100%; /* Prendre toute la largeur disponible */
+}
+
+/* Champ de recherche */
+.search-field {
+  width: 60%; /* Largeur par défaut */
+  margin-right: 1rem; /* Espace entre le champ de recherche et le bouton */
+}
+
+@media (max-width: 768px) {
+  .search-field {
+    width: 80%; /* Réduire la largeur pour les écrans plus petits */
+  }
+}
+
+@media (max-width: 480px) {
+  .search-field {
+    width: 100%; /* Prendre toute la largeur disponible sur les très petits écrans */
+    margin-right: 0; /* Supprime l'espacement pour centrer le bouton */
+  }
+  .search-container {
+    flex-direction: column; /* Aligne la recherche et le bouton verticalement sur les petits écrans */
+  }
+}
+
+/* Bouton de recherche */
+button.mat-icon-button {
+  height: 56px; /* Assurez-vous que la hauteur correspond à celle du champ de recherche */
+  width: 56px; /* Largeur du bouton de recherche pour correspondre à sa hauteur */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Table Styling */
+.mat-elevation-z8 {
+  width: 100%;
+  max-width: 900px; /* Largeur maximale du tableau */
+  background: #fff; /* Fond du tableau */
+  border-radius: 8px; /* Coins arrondis */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre portée */
+  border-collapse: collapse; /* Assure que les bordures sont fusionnées pour un aspect plus propre */
+  padding: 1rem; /* Espacement intérieur autour du tableau */
+}
+
+.table-title {
+  font-size: 1.5rem; /* Ajustez la taille du titre */
+  margin: 1rem 0; /* Espace autour du titre, ajustez selon vos besoins */
+  padding: 0; /* Pas de padding par défaut */
+  color: #3f51b5; /* Couleur du titre, ajustez selon votre thème */
+}
+
+table {
+  width: 100%;
+}
+
+/* En-têtes de colonne */
+th.mat-header-cell {
+  background-color: #3f51b5; /* Couleur de fond des en-têtes */
+  font-weight: bold; /* Texte en gras */
+  padding: 0.75rem; /* Espacement intérieur des cellules d'en-tête réduit */
+  color: #fff; /* Couleur du texte en blanc pour contraster avec le fond bleu */
+}
+
+/* Cellules du tableau */
+td.mat-cell {
+  padding: 0.75rem; /* Espacement intérieur des cellules réduit */
+  color: #666; /* Couleur du texte */
+}
+
+/* Lignes du tableau */
+.mat-row:nth-child(even) {
+  background-color: #f9f9f9; /* Couleur de fond des lignes paires */
+}
+
+/* Espacement entre les lignes */
+.mat-row {
+  border-bottom: 1px solid #ddd; /* Bordure entre les lignes */
+}
+
+/* Boutons d'icônes */
+button.mat-icon-button {
+  margin: 0 0.5rem; /* Espacement horizontal entre les boutons */
+  padding: 0; /* Suppression du padding par défaut */
+}
+
+/* Couleur des icônes */
+button.mat-icon-button.mat-primary {
+  color: #3f51b5; /* Couleur de l'icône pour le bouton primaire */
+}
+
+/* Pagination */
+mat-paginator {
+  margin-top: 1rem; /* Espacement au-dessus du pagination */
+}
+
+/* Ajuster les marges et padding pour une meilleure visibilité */
+td.mat-cell, th.mat-header-cell {
+  text-align: center; /* Centre le texte dans les cellules */
+}
