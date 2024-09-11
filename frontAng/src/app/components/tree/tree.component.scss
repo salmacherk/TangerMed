@@ -1,0 +1,73 @@
+.tree {
+  --spacing: 1.5rem;
+  --radius: 10px;
+  --border-color: #ddd; /* Couleur des bordures, non utilisé ici */
+  --background-color: #f9f9f9; /* Couleur de fond */
+  --highlight-color: #8a8a8e; /* Couleur de surbrillance pour les éléments sélectionnés */
+  --circle-color: #3f51b5; /* Couleur du cercle avant les éléments */
+}
+
+.tree {
+  background-color: var(--background-color);
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.tree li {
+  position: relative;
+  padding-left: var(--spacing);
+  margin-bottom: 0.5rem;
+  list-style-type: none; /* Supprimer les puces des listes */
+}
+
+.tree ul {
+  padding-left: 0; /* Enlever l'indentation des sous-listes */
+  margin-left: 0; /* Enlever le margin gauche des sous-listes */
+}
+
+.tree ul li {
+  border-left: none; /* Supprimer la bordure gauche des éléments */
+}
+
+.tree ul li::before {
+  content: '';
+  display: none; /* Supprimer les lignes ou tirets */
+}
+
+.tree summary {
+  display: block;
+  cursor: pointer;
+  padding: 0.5rem;
+  background: var(--highlight-color);
+  color: white;
+  border-radius: 3px;
+  margin-bottom: 0.25rem;
+  transition: background-color 0.3s ease;
+}
+
+.tree summary:hover {
+  background-color: #2c387e; /* Couleur de survol pour les éléments sélectionnés */
+}
+
+.tree summary::marker,
+.tree summary::-webkit-details-marker {
+  display: none; /* Supprimer les marqueurs de détails */
+}
+
+.tree summary:focus {
+  outline: none;
+}
+
+.tree summary:focus-visible {
+  outline: 1px dotted #000;
+}
+
+.tree li::after,
+.tree summary::before {
+  content: '';
+  display: none; /* Supprimer les cercles ou icônes */
+}
+
+.tree details[open] > summary::before {
+  background-position: calc(-2 * var(--radius)) 0;
+}

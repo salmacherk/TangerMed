@@ -1,0 +1,18 @@
+<ul class="tree">
+  <li *ngFor="let node of treeData">
+    <details [attr.open]="node.expanded ? true : null">
+      <summary (click)="toggle(node)">
+        {{ node.name }}
+      </summary>
+      <ul *ngIf="node.children && node.children.length">
+        <li *ngFor="let child of node.children">
+          <app-tree-node
+            [node]="child"
+            (nodeClick)="onNodeClick($event)"
+            (documentDeleted)="onDocumentDeleted($event, node)">
+          </app-tree-node>
+        </li>
+      </ul>
+    </details>
+  </li>
+</ul>

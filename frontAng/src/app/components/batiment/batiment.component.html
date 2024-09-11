@@ -16,25 +16,25 @@
   <div class="mat-elevation-z8">
     <h2 class="table-title">Tableau des bâtiments</h2>
     <table mat-table [dataSource]="dataSource" matSort>
-      <!-- Colonne ID -->
+      
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> ID </th>
         <td mat-cell *matCellDef="let batiment"> {{ batiment.id }} </td>
       </ng-container>
       
-      <!-- Colonne Nom -->
+      
       <ng-container matColumnDef="nom">
         <th mat-header-cell *matHeaderCellDef> Nom </th>
         <td mat-cell *matCellDef="let batiment"> {{ batiment.nom }} </td>
       </ng-container>
       
-      <!-- Colonne Site -->
+      
       <ng-container matColumnDef="site">
         <th mat-header-cell *matHeaderCellDef> Site </th>
         <td mat-cell *matCellDef="let batiment"> {{ batiment.site }} </td>
       </ng-container>
 
-      <!-- Colonne Document -->
+      
       <ng-container matColumnDef="document">
         <th mat-header-cell *matHeaderCellDef> Document </th>
         <td mat-cell *matCellDef="let batiment">
@@ -43,8 +43,12 @@
           </button>
           
           <button mat-icon-button color="primary" (click)="viewDocuments(batiment)">
+            <mat-icon>description</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" (click)="viewDetails(batiment)">
             <mat-icon>visibility</mat-icon>
           </button>
+          
         </td>
       </ng-container>
 

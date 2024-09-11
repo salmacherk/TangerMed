@@ -17,6 +17,7 @@ export class Document {
   ouvrageId?: number;
   actifId?: number; 
   batimentId?: number; 
+  
 
   constructor(
     id: number,

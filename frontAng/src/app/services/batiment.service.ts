@@ -42,5 +42,10 @@ uploadDocuments(batimentId: number, formData: FormData, groupeId?: number): Obse
   getGroupesByBatimentId(batimentId: number): Observable<Groupe[]> {
     return this.http.get<Groupe[]>(`${this.apiUrl}/${batimentId}/groupes`);
   }
- 
+  getBatimentById(batimentId: number): Observable<Batiment> {
+    const url = `${this.apiUrl}/${batimentId}`;
+    return this.http.get<Batiment>(url);
+  }
+  
 }
+

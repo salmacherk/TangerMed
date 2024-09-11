@@ -79,11 +79,14 @@ export class BatimentComponent implements OnInit, AfterViewInit {
   applyFilter(): void {
     this.loadBatiments(); 
   }
+  viewDetails(batiment: Batiment): void {
+    this.router.navigate(['/batiment-details'], {
+      queryParams: { batimentId: batiment.id }
+    });
+  }
   
 
-  viewDetails(batiment: Batiment): void {
-    this.router.navigate(['/batiments', batiment.id]);
-  }
+ 
   viewDocuments(batiment: Batiment): void {
     this.router.navigate(['/documents'], {
       queryParams: { batimentId: batiment.id }

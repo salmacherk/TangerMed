@@ -74,5 +74,32 @@ export class ActifController {
       return res.status(500).json({ error: 'Erreur lors de la récupération des actifs.' });
     }
   }
-  
+  async getGroupesByActifId(req: Request, res: Response): Promise<Response> {
+    try {
+      const actifRepository = getRepository(Actif);
+      
+      // Récupération de l'actif par son ID
+      const actif = await actifRepository.findOne(req.params.actifId, {
+        relations: ['groupe'] // Chargement des relations du groupe
+      });
+      
+      if (!actif) {
+        return res.status(404).json({ message: 'Actif not found' });
+      }
+      
+      // Extraction du groupe associé
+      const groupe = actif.groupe;
+
+      // Si aucun groupe n'est associé à l'actif
+      if (!groupe) {
+        return res.status(404).json({ message: 'No groupe found for this actif' });
+      }
+
+      // Retourner les informations du groupe
+      return res.status(200).json(groupe);
+    } catch (error) {
+      console.error('Erreur lors de la récupération du groupe pour Actif:', error);
+      return res.status(500).json({ error: 'Erreur lors de la récupération du groupe pour Actif.' });
+    }
+  }
 }

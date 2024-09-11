@@ -1,0 +1,39 @@
+<div class="tree-node" (click)="node.isLeaf ? $event.stopPropagation() : onClick()">
+  <div class="node-content" [ngClass]="{'document-node': node.isLeaf, 'group-node': node.isGroupe}">
+   
+    <ng-container *ngIf="!node.isLeaf">
+      <mat-icon class="expand-icon">{{ node.expanded ? 'expand_less' : 'expand_more' }}</mat-icon>
+    </ng-container>
+
+    
+    <span class="node-name">{{ node.name }}</span>
+
+   
+    <ng-container *ngIf="node.isLeaf">
+      <div class="actions">
+        <button mat-icon-button color="primary" (click)="viewDocument($event)">
+          <mat-icon>visibility</mat-icon>
+        </button>
+        
+        <ng-container *ngIf="!node.isInBatimentGroup">
+          <button mat-icon-button color="warn" (click)="deleteDocument($event)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </ng-container>
+        <button mat-icon-button color="primary" (click)="downloadDocument($event)">
+          <mat-icon>download</mat-icon>
+        </button>
+      </div>
+    </ng-container>
+  </div>
+
+ 
+  <div *ngIf="node.expanded && node.children && node.children.length" class="child-nodes">
+    <app-tree-node
+      *ngFor="let child of node.children"
+      [node]="child"
+      (nodeClick)="nodeClick.emit($event)"
+      (documentDeleted)="documentDeleted.emit($event)">
+    </app-tree-node>
+  </div>
+</div>

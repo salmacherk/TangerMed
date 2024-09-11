@@ -24,7 +24,7 @@ routes.get('/batiments',authenticateToken, batimentController.getBatiments.bind(
 routes.post('/batiments/:batimentId/documents', authenticateToken, upload.array('files'), batimentController.createDocumentsForBatiment.bind(batimentController));
 routes.get('/batiments/sites', batimentController.getAllSites.bind(batimentController));
 routes.get('/batiments/:id/groupes', batimentController.getGroupesByBatimentId);
-
+routes.get('/batiments/:batimentId', batimentController.getBatimentById.bind(batimentController));
 
 routes.post('/register', UserController.register);
 routes.post('/login', UserController.login);
@@ -39,6 +39,7 @@ routes.delete('/documents/delete/:id',authenticateToken, documentController.dele
 
 routes.get('/actifs',authenticateToken,actifController.getActifs.bind(actifController));
 routes.post('/actifs/:actifId/documents', upload.array('files'), actifController.createDocumentsForActif.bind(actifController));
+routes.get('/actifs/:actifId/groupes', actifController.getGroupesByActifId.bind(actifController));
 
 
 routes.get('/ouvrages',authenticateToken, ouvrageController.getOuvrages.bind(ouvrageController)); 

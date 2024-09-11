@@ -9,6 +9,10 @@
         <img src="assets/icons/home.png" alt="Home Icon" class="menu-icon"/>
         <span class="title">Home</span>
       </a>
+      <a mat-list-item class="link" [ngClass]="{'active': activeLink === 'Tree'}" (click)="navigateTo('tree')">
+        <img src="assets/icons/Structure.png" alt="Tree Icon" class="menu-icon"/>
+        <span class="title">Structure</span>
+      </a>
       <a mat-list-item class="link" [ngClass]="{'active': activeLink === 'groupes'}" (click)="navigateTo('groupes')">
         <img src="assets/icons/groupe.png" alt="Groupes Icon" class="menu-icon"/>
         <span class="title">Groupes</span>

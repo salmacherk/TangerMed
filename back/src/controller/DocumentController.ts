@@ -18,14 +18,12 @@ export class DocumentController {
         const { actifId, groupeId, ouvrageId, batimentId } = req.query;
         const documentRepository = getRepository(Document);
 
-        
         let queryBuilder = documentRepository.createQueryBuilder('document')
             .leftJoinAndSelect('document.groupe', 'groupe')
             .leftJoinAndSelect('document.ouvrage', 'ouvrage')
             .leftJoinAndSelect('document.actif', 'actif')
             .leftJoinAndSelect('document.batiment', 'batiment');
 
-        
         if (actifId) {
             queryBuilder.andWhere(
                 `(document.actifId = :actifId OR document.groupeId IN ` +
@@ -34,28 +32,23 @@ export class DocumentController {
                 { actifId }
             );
         }
+
         if (groupeId) {
             queryBuilder.andWhere('document.groupeId = :groupeId', { groupeId });
         }
+
         if (ouvrageId) {
             queryBuilder.andWhere('document.ouvrageId = :ouvrageId', { ouvrageId });
         }
+
         if (batimentId) {
-          queryBuilder.andWhere(
-              `(document.batimentId = :batimentId OR document.groupeId IN ` +
-              `(SELECT "groupeId" FROM "batiment_groupes_groupe" WHERE "batimentId" = :batimentId) ` +
-              `OR document.batimentId IN ` +
-              `(SELECT "batimentId" FROM "batiment_groupes_groupe" WHERE "groupeId" IN ` +
-              `(SELECT "groupeId" FROM "batiment_groupes_groupe" WHERE "batimentId" = :batimentId)))`,
-              { batimentId }
-          );
-      }
+          queryBuilder.andWhere('document.batimentId = :batimentId', { batimentId });
 
+         
+        }
 
-       
         const documents = await queryBuilder.getMany();
 
-       
         const result = documents.map(doc => ({
             id: doc.id,
             chemin: doc.chemin,
@@ -69,14 +62,12 @@ export class DocumentController {
             portfolio: doc.portfolio ? doc.portfolio : '-',
         }));
 
-        
         return res.status(200).json(result);
     } catch (error) {
         console.error('Erreur lors de la récupération des documents:', error);
         return res.status(500).json({ error: 'Erreur lors de la récupération des documents.' });
     }
-}
-
+  }
 
   async deleteDocument(req: Request, res: Response): Promise<void> {
     const { id } = req.params;

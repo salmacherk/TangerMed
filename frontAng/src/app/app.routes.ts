@@ -13,6 +13,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { BatimentComponent } from './components/batiment/batiment.component';
 import { SelectTypeComponent } from './components/select-type/select-type.component';
+import { TreeComponent } from './components/tree/tree.component';
+
+import { BatimentDetailsComponent } from './components/batiment-details/batiment-details.component';
 
 export const routes: Routes = [
     { path: 'home', component: HomeComponent},
@@ -24,7 +27,10 @@ export const routes: Routes = [
     { path: 'add-document', component: AddDocumentComponent,canActivate: [AuthGuard] },
     { path: 'documents', component: DocumentsComponent,canActivate: [AuthGuard] },
     { path: '', redirectTo: '/login', pathMatch: 'full' },
+    { path: 'tree', component: TreeComponent,canActivate: [AuthGuard] },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent},
+    
+    { path: 'batiment-details', component: BatimentDetailsComponent,canActivate: [AuthGuard] },
 ];
 

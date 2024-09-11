@@ -1,0 +1,72 @@
+<div *ngIf="batiment">
+    <table>
+      <thead>
+        <tr>
+          <th>Bâtiment</th>
+          <th>Belvédère</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Nombre de niveaux :</strong></td>
+          <td>{{ batiment.nombreNiveaux }}</td>
+        </tr>
+        <tr>
+          <td><strong>Surface :</strong></td>
+          <td>{{ batiment.surface }} m²</td>
+        </tr>
+        <tr>
+          <td><strong>Exploitant :</strong></td>
+          <td>{{ batiment.exploitant }}</td>
+        </tr>
+        <tr>
+          <td><strong>Aperçu Graphique :</strong></td>
+          <td>
+            <img [src]="batiment.apercuGraphique" alt="Aperçu Graphique du Bâtiment" style="max-width: 300px;" />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <!-- Nouveau tableau pour "Situation des anomalies" -->
+  <div class="anomalies-table">
+    <table>
+      <thead>
+        <tr>
+          <th colspan="2">Situation des anomalies</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Nb global des OT :</strong></td>
+          <td>101</td>
+        </tr>
+        <tr>
+          <td><strong>DI ouvert :</strong></td>
+          <td>11</td>
+        </tr>
+        <tr>
+          <td><strong>OT en cours :</strong></td>
+          <td>15</td>
+        </tr>
+        <tr>
+          <td><strong>OT STANDBY :</strong></td>
+          <td>05</td>
+        </tr>
+        <tr>
+          <td><strong>OT clôturé :</strong></td>
+          <td>71</td>
+        </tr>
+        <tr>
+          <td><strong>MNP :</strong></td>
+          <td>70 %</td>
+        </tr>
+        <tr>
+          <td><strong>MP :</strong></td>
+          <td>30 %</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

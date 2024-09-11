@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Actif } from '../models/Actif';
 import { AuthService } from './auth.service';
+import { Groupe } from '../models/Groupe';
 
 @Injectable({
   providedIn: 'root'
@@ -31,4 +32,6 @@ export class ActifService {
     const url = `${this.apiUrl}/${actifId}/documents`;
     return this.http.post(url, formData);
   }
+  
+  
 }

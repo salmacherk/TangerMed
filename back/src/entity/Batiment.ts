@@ -6,7 +6,7 @@ import { Document } from './Document';
 export class Batiment {
   @PrimaryGeneratedColumn()
   id: number;
-  
+
   @Column()
   nom: string;
 
@@ -14,9 +14,23 @@ export class Batiment {
   site: string;
 
   @ManyToMany(() => Groupe, groupe => groupe.batiments)
-  @JoinTable() 
+  @JoinTable()
   groupes: Groupe[];
 
   @OneToMany(() => Document, document => document.batiment)
   documents: Document[];
+
+  @Column({ default: 0 })
+  nombreNiveaux: number;
+
+ 
+  @Column('decimal', { precision: 10, scale: 2, default: 0 })
+  surface: number;
+
+  @Column({ default: 'Inconnu' })
+  exploitant: string;
+  
+
+  @Column({ nullable: true })
+  apercuGraphique: string;
 }

@@ -30,6 +30,26 @@ export class BatimentController {
         return res.status(500).json({ error: 'Erreur lors de la récupération des bâtiments.' });
     }
   }
+  // Dans BatimentController
+async getBatimentById(req: Request, res: Response): Promise<Response> {
+  try {
+    const batimentId = parseInt(req.params.batimentId, 10);
+    const batiment = await getRepository(Batiment).findOne(batimentId, {
+      relations: ['documents', 'groupes'],
+    });
+
+    if (!batiment) {
+      return res.status(404).json({ message: 'Bâtiment non trouvé' });
+    }
+
+    return res.status(200).json(batiment);
+  } catch (error) {
+    console.error('Erreur lors de la récupération du bâtiment:', error);
+    return res.status(500).json({ error: 'Erreur lors de la récupération du bâtiment.' });
+  }
+}
+
+  
   async createDocumentsForBatiment(req: Request, res: Response): Promise<Response> {
     try {
         const batimentRepository = getRepository(Batiment);

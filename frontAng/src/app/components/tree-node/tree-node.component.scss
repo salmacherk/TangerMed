@@ -1,0 +1,60 @@
+
+
+
+.tree-node {
+  margin: 4px 0;
+  padding: 4px;
+  list-style-type: none; 
+}
+
+.node-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.expand-icon {
+  margin-right: 8px;
+}
+
+.node-name {
+  flex-grow: 1;
+  margin-right: 8px;
+  white-space: nowrap; /* Empêche le texte de se casser sur plusieurs lignes */
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.actions button {
+  min-width: 0; /* Évite que les boutons prennent plus de largeur que nécessaire */
+}
+
+.child-nodes {
+  padding-left: 20px;
+}
+
+.document-node {
+  background-color: #f0f8ff; /* Couleur de fond pour les documents */
+}
+
+.group-node {
+  background-color: #3f51b5;
+  color: white;
+}
+
+/* Styles pour les éléments de liste */
+.tree-node ul {
+  list-style-type: none; /* Supprimer les puces des listes */
+  padding-left: 0; /* Supprimer le retrait */
+  margin: 0; /* Assurer qu'il n'y a pas de marges par défaut */
+}
+
+.tree-node li {
+  border-left: none; /* Supprimer la bordure gauche des éléments */
+  padding-left: 0; /* Supprimer le padding gauche */
+  margin: 0; /* Supprimer la marge pour les éléments de liste */
+}

@@ -1,0 +1,73 @@
+/* Centrer le tableau */
+table {
+    width: 80%; /* Ajustez cette valeur pour la largeur du tableau */
+    margin: 20px auto;
+    border-collapse: collapse;
+    font-size: 1em;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style des en-têtes */
+  thead th {
+    background-color: #3f51b5; /* Couleur pour le premier tableau */
+    color: white;
+    text-align: left;
+    padding: 12px;
+  }
+  
+  /* Style des cellules */
+  tbody td {
+    border-bottom: 1px solid #ddd;
+    padding: 12px;
+    color: #333;
+  }
+  
+  /* Premier tableau (Bâtiment) */
+  table:first-of-type {
+    margin-bottom: 40px; /* Espace entre les deux tableaux */
+  }
+  
+  /* Style pour la première colonne */
+  tbody td:first-child {
+    font-weight: bold;
+    background-color: #f2f2f2;
+    width: 30%;
+  }
+  
+  /* Survol des lignes */
+  tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Style de l'image */
+  img {
+    display: block;
+    margin: 10px 0;
+    max-width: 300px;
+    height: auto;
+    border: 1px solid #ddd;
+    padding: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  
+  
+  .anomalies-table thead th {
+    background-color: #3f51b5; /* Couleur verte foncée pour l'en-tête du second tableau */
+  }
+  
+ 
+  
+  /* Style des cellules du tableau des anomalies */
+  .anomalies-table tbody td:first-child {
+    font-weight: bold;
+  }
+  
+  .anomalies-table tbody td:last-child {
+    text-align: left;
+  }
+  
